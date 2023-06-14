@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+  *{
+   margin: 5px;
+   padding: 5px;
+  }
+  #instr{
+    border :1px solid black ;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  #things{
+    border-top: 0px;
+    margin-top: 10px;
+    border :1px solid black ;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+ #rp,#ques {
+    height: 30px;
+    width: 90%;
+    border :1px solid cyan;
+    border-radius: 50px;
+  }
+  
+  
+  
+  #call{
+    width : 250px;
+    height: 40px;
+    background-color: white;
+    border :1px solid black;
+    border-radius: 35px;
+    transition:  0.2s ease-in-out 100ms;
+  }
+  #call:hover{
+    background-color: gray;
+    color: cyan;
+    transform: translateY(-5px);
+    
+  }
+  
+  </style>
+  <title>Document</title>
+</head>
+<body>
+  <div id="instr">
+  <p>Use "x" as unknow number</p>
+  <p>Use "^" for "to the power"</p>
+  <p>Use "*" for "multiply"</p>
+  </div>
+  <div id="things">
+      <p id="ans">Answer: </p>
+  <input placeholder="Enter Question..." id="ques">
+ <br> <input placeholder="Number To Replace x" id="rp">
+  <br>
+  <button onclick="cac()" id="call">Calculate</button>
+  </div>
+
+  
+
+  
+</body>
+<script>
+var ans= document.getElementById("ans");
+var ques=document.getElementById("ques");
+var rp=document.getElementById("rp")
+  function cal(data){
+    b=eval(data);
+    return b;
+  }
+  
+  function cac(){
+    ans.innerHTML= "Answer: "+cal(ques.value.replaceAll("x","("+rp.value+")").replace("^","**"))
+  }
+  
+</script>
+</html>
